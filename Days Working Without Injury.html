@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)https://injury-counter.vercel.app/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Days Working Without Injury</title>
+    <link rel="icon" href="./Days Working Without Injury_files/icon.png" type="image/x-icon">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #fff8dc, #ffffff);
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            color: black;
+            text-align: center;
+            padding: 50px;
+            position: relative;
+        }
+        #logo {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 100px; /* Adjusted size to medium */
+        }
+        #result {
+            font-size: 2em;
+            color: black;
+            font-weight: bold;
+        }
+        #days {
+            font-size: 3em;
+            color: #ff6666; /* Soft red color */
+            font-weight: bold;
+        }
+        #seconds {
+            font-size: 1em;
+            text-decoration:underline;
+            font-weight: bold;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: black;
+        }
+        label, input {
+            font-size: 1.2em;
+            margin: 10px;
+            color: black;
+        }
+        button {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #0072ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005bb5;
+        }
+    </style>
+</head>
+<body>
+    <img id="logo" src="./Days Working Without Injury_files/icon.png" alt="Company Logo">
+    <h1>Days Working Without Injury</h1>
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" disabled="" value="2026-02-24">
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate" disabled="">
+    <p id="result">We have worked <span id="days">1150</span> days, 11 hours, 34 minutes, and <span id="seconds">15</span> seconds without injuries!</p>
+
+    <script>
+        // Set the end date to today's date
+        document.getElementById('endDate').valueAsDate = new Date();
+
+        function calculateTime() {
+            const startDate = new Date('2026-02-24T00:00:00');
+            const now = new Date();
+            const timeDifference = now - startDate;
+
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            document.getElementById('result').innerHTML = `We have worked <span id="days">${days}</span> days, ${hours} hours, ${minutes} minutes, and <span id="seconds">${seconds}</span> seconds without injuries!`;
+        }
+
+        // Update the time every second
+        setInterval(calculateTime, 1000);
+
+        // Calculate time immediately when the page loads
+        window.onload = calculateTime;
+    </script>
+
+
+<scribe-shadow id="crxjs-ext" data-crx="ejommccbnocgekjphflienmbmkallcef" style="position: fixed; width: 0px; height: 0px; top: 0px; left: 0px; z-index: 2147483647; overflow: visible; visibility: visible;"><template shadowrootmode="open"><div id="root-scribe-elem" style="position: fixed; width: 0px; height: 0px; top: 0px; left: 0px; overflow: visible; color: rgb(21, 24, 30);"><div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events: none;"><ol tabindex="-1" class="fixed bottom-auto right-0 top-0 z-[999999] flex max-h-screen w-[400px] max-w-full p-4"></ol></div></div><link rel="stylesheet" href="chrome-extension://ejommccbnocgekjphflienmbmkallcef/assets/style.css"></template></scribe-shadow></body></html>
